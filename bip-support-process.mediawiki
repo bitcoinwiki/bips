@@ -78,7 +78,7 @@ Majority support shall be represented as entities (e.g. exchanges, software proj
 
 Proposals which require a hard fork must have unanimous support.
 
-It is up to the proponents to convince the user base that the appropriate support has been obtained.
+It is up to the proponents to convince the user base that the appropriate level of support has been obtained.
 
 Examples:
 * https://bitcoincore.org/en/segwit_adoption/
