@@ -1,0 +1,98 @@
+<pre>
+  BIP: ???
+  Title: Support Process
+  Author: Karl-Johan Alm <karljohan-alm@garage.co.jp>
+  Comments-Summary: No comments yet.
+  Comments-URI: https://github.com/bitcoin/bips/wiki/Comments:BIP-???
+  Status: Draft
+  Type: Process
+  Created: 2017-06-12
+  License: BSD-2-Clause
+</pre>
+
+==Abstract==
+
+A process for distinguishing attacks on, and controversial or disruptive changes to the Bitcoin network.
+
+==Motivation==
+
+As Bitcoin increases in value, more and more sophisticated attempts to hijack the network, or gain control that would adversely affect the health of the network, will occur.
+
+There have already been multiple attempts to change the network rules without adequate community support, forcing the user base to invest energy and time into ensuring the network remain stable, decentralized, healthy, and secure.
+
+This BIP is intended to act as a standard process for support, in particular with controversial or disruptive changes to the network; any entity which attempts to alter the network without following this process shall be considered an attacker on the network. Incorporating a change by an entity which did not following this process shall be considered an attack on the network by the community.
+
+As such, it is imperative that the user base as a whole commit to supporting this process; if the community fails in doing so, this BIP shall be revised to satisfy the majority of the user base, or withdrawn if this is deemed unfeasible.
+
+Note that this BIP applies to all implementations of Bitcoin nodes, not just the Bitcoin Core reference implementation.
+
+==Proposal Process==
+
+Overview of the Proposal Process. Note that proposals which are compatible with the current network do not need to follow these guidelines.
+
+# Disclosure: A proposal must be made in a public forum, such as an open-to-the-public mailing list
+# Viability: Proponents of the proposal must adequately argue for its viability when opposed in a constructive manner
+# BIP: A proposal must follow the BIP process
+# Support: A proposal must garner support from the majority and present this support publicly
+# Implementation: An implementation attempt for a proposal must be peer reviewed and challenged implementation decisions must be defended
+
+Any attempt to activate a proposed change while failing to comply with any of the above steps shall be considered an attack on the network, and must be rejected by the user base as a whole.
+
+===Disclosure===
+
+<blockquote>
+A proposal must be made in a public forum, such as an open-to-the-public mailing list
+</blockquote>
+
+Preferably, a proposal is made in multiple places to allow for a wider audience.
+
+Examples of forums are:
+* The bitcoin development mailing list: https://lists.linuxfoundation.org/mailman/listinfo/bitcoin-dev
+* Reddit: https://www.reddit.com/r/bitcoin/
+
+===Viability===
+
+<blockquote>
+Proponents of the proposal must adequately argue for its viability when opposed in a constructive manner
+</blockquote>
+
+Failure to provide a solution to a flaw pointed out by an opponent within a reasonable amount of time, in particular if the proposal has a built-in deadline for activation, shall be considered a withdrawal of the proposal. Any software which depends on the proposal activating must remove the dependency or be discontinued.
+
+===BIP===
+
+<blockquote>
+A proposal must follow the BIP process
+</blockquote>
+
+Any non-compatible proposal which does not follow the BIP process shall be considered invalid, until a BIP has been proposed. Note that this aligns with the "Viability" step above.
+
+Note that the BIP does not necessarily have to be submitted to the Bitcoin Bips github repository, as long as it adheres to the BIP creation process as defined in BIP-2, and as long as it is publicly disclosed (see "Disclosure" step above), and as long as it is publicly defended when constructive criticism is offered.
+
+===Support===
+
+<blockquote>
+A proposal must garner support from the majority and present this support publicly
+</blockquote>
+
+Majority support shall be represented as entities (e.g. exchanges, software projects, or individual developers) giving their opinions on the proposed changes. It must be presented in a clear and informative manner, and must also include entities which oppose the proposal, if any.
+
+Examples:
+* https://bitcoincore.org/en/segwit_adoption/
+* https://en.bitcoin.it/wiki/Segwit_support
+* http://www.uasf.co/
+
+===Implementation===
+
+<blockquote>
+An implementation attempt for a proposal must be peer reviewed and challenged implementation decisions must be defended
+</blockquote>
+
+An implementation failing to address a challenged implementation decision, either by updating the code or by defending the decision, shall be considered incompatible with the proposal, and must not be running on software directly connected to the network except for debugging or development purposes. Implementations which do something other than what is being proposed shall be considered attacks on the network, and must be rejected by the user base as a whole.
+
+==Copyright==
+
+This BIP is licensed under the BSD 2-clause license.
+
+==See Also==
+
+* [[bip-0002.mediawiki|BIP 2: BIP process, revised]]
