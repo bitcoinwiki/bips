@@ -76,6 +76,10 @@ A proposal must garner support from the majority and present this support public
 
 Majority support shall be represented as entities (e.g. exchanges, software projects, or developers) giving their opinions on the proposed changes. It must be presented in a clear and informative manner, and must also include entities which oppose the proposal, if any.
 
+Proposals which require a hard fork must have unanimous support.
+
+It is up to the proponents to convince the user base that the appropriate support has been obtained.
+
 Examples:
 * https://bitcoincore.org/en/segwit_adoption/
 * https://en.bitcoin.it/wiki/Segwit_support
