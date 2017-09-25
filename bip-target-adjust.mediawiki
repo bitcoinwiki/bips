@@ -1,0 +1,97 @@
+<pre>
+  BIP: ???
+  Layer: Consensus
+  Title: Smooth Parks-McClellan filtered Difficulty Target Adjustment
+  Author: Karl-Johan Alm <karljohan-alm@garage.co.jp>
+  Comments-Summary: No comments yet.
+  Comments-URI: https://github.com/bitcoin/bips/wiki/Comments:BIP-????
+  Status: Draft
+  Type: Standards Track
+  Created: 2017-09-25
+  License: BSD-2-Clause
+</pre>
+
+==Abstract==
+
+A hard fork to change the difficulty target adjustment to respond more quickly to
+sudden changes in the hashrate of the network.
+
+==Definitions==
+
+* BTC: unmodified bitcoin (chain)
+* S2X: segwit2x hard fork (chain)
+* BFA: bitcoin with fast difficulty adjustment (chain)
+
+==Motivation==
+
+As alt coins using the same proof of work algorithm are gaining traction, the
+Bitcoin network is more and more at the mercy of the mood of the miner majority.
+This document proposes a change in the difficulty adjustment algorithm to more
+swiftly respond to sudden, big changes in the distributed hashrate of the network,
+to dampen the effect of miners switching chains, or of the more general case where
+miners become unavailable for an extended period of time, e.g. if the country of
+a large portion of miners outlaws Bitcoin.
+
+While the proposal is a hard fork with arguably more complex changes than S2X,
+it may be justified as it provides an optional way out for loyal miners to avoid
+a complete chain shutdown.
+
+==Specification==
+
+The proposed change is described in Mark Friedenbach's "Fast(er) Difficulty
+Adjustment for Secure Sidechains" slides from Scaling Bitcoin 2016 in Milan. [1]
+
+The proposal is symmetric, meaning it will jump back up as fast as it falls down;
+this should address the encouragement for miners to switch back and forth between
+same-PoW chains to some extent. It may be necessary to make it slightly asymmetric
+to rise more quickly than it falls, to further address this issue, but if this is
+too steep, it may encourage sabotage with the purpose of slowing down the chain.
+
+The hard fork would activate at the same time as the S2X chain, on block
+494784. Bitcoin miners would at this point have two options: they could continue
+mining BTC, or they could mine BFA.
+
+The assumption would be that most miners would stay on the BTC chain until the
+hashrate distribution was determined. In the case of a majority moving to the S2X
+chain, the miners could choose to start mining the BFA chain. In order to avoid
+unnecessary reorganizations when switching chains, the BFA chain would stay
+compatible with BTC up until the first fast difficulty adjustment was made.
+
+==Activation stages==
+
+The hard fork activates in two stages: the opt-in stage and the hard fork stage.
+
+The opt-in stage begins at block 494784. Starting with block 494785, miners have
+the option of adjusting the difficulty using the proposed algorithm, or using
+the pre-existing algorithm.
+
+A block is considered valid if its difficulty target is either that of the BTC
+chain or that of the BFA chain.
+
+If the difficulty is that of the BFA chain, and if this difficulty differs from
+the difficulty of the BTC chain, the hard fork stage occurs as of that block.
+To prevent miners gaming the chain, this fork will never reorg back into the
+main BTC chain.
+
+==Compatibility==
+
+This proposal is a hard fork. It is backwards compatible up until the point where a miner mines a block with a difficulty that is not following the
+BTC difficulty adjustment policy.
+
+==Reference implementation==
+
+There is an example implementation by Mark Friedenbach for a Bitcoin fork called BC2 here: https://github.com/dgarage/bc2/pull/3
+
+A reference implementation for Bitcoin will be written if this proposal gains enough support.
+
+==References==
+
+* [1] Fast(er) Difficulty Adjustment for Secure Sidechains https://scalingbitcoin.org/milan2016/presentations/Scaling%20Bitcoin%203%20-%20Mark%20Friedenbach.pdf
+
+==Copyright==
+
+This BIP is licensed under the BSD 2-clause license.
+
+==Acknowledgements==
+
+Special thanks to Mark Friedenbach for proposing the original idea.
