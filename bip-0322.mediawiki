@@ -144,7 +144,7 @@ This specification is backwards compatible with the legacy signmessage/verifymes
 
 == Reference implementation ==
 
-TODO
+* Bitcoin Core pull request (basic support) at: https://github.com/bitcoin/bitcoin/pull/24058
 
 == Acknowledgements ==
 
@@ -160,4 +160,21 @@ This document is licensed under the Creative Commons CC0 1.0 Universal license.
 
 == Test vectors ==
 
-TODO
+=== Message hashing ===
+
+Message hashes are BIP340-tagged hashes of a message, i.e. sha256_tag(m), where tag = <code>BIP0322-signed-message</code>:
+
+* Message = "" (empty string): <code>6e1acf4f6786c3e939571f3e186f45a941208625b78ef293da8fd18327260fff</code>
+* Message = "Hello World": <code>6c5f83704b791f004f0b462ff0b4dd74b4a066facedfe87c12ea3153de5c03d0</code>
+
+=== Message signing ===
+
+Given below parameters:
+
+* private key <code>L3VFeEujGtevx9w18HD1fhRbCH67Az2dpCymeRE1SoPK6XQtaN2k</code>
+* corresponding address <code>bc1q9vza2e8x573nczrlzms0wvx3gsqjx7vavgkx0l</code>
+
+Produce signatures:
+
+* Message = "" (empty string): <code>AkcwRAIgClVQ8S9yX1h8YThlGElD9lOrQbOwbFDjkYb0ebfiq+oCIDHgb/X9WNalNNtqTXb465ufbv9JuLxcJf8qi7DP6yOXASECx/EgAxlkQpQ9hYjgGu6EBCPMVPwVIVJqO4XCsMvViHI=</code>
+* Message = "Hello World": <code>AkcwRAIgOi+9FWeR72LaQwZheoopqzQ8apqy2V4J9xtC+WAuMWUCIBxRYlIeSB8B00lzCEwhYIG4oSegnVPWnAmjrBJlNaCQASECx/EgAxlkQpQ9hYjgGu6EBCPMVPwVIVJqO4XCsMvViHI=</code>
